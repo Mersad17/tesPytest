@@ -1,5 +1,5 @@
-# This is a basic workflow to help you get started with Actions
 
+# This is a basic workflow to help you get started with Actions
 name: CI
 
 # Controls when the workflow will run
@@ -9,6 +9,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,15 +23,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
 
+      - name: Run a multi-line script
+        run: |
+          pip install pipenv,
+          pipenv run pip install flask,
+          pipenv run pip install pytest.
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Run flask
+        run: pipenv run flask run 
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          pytest -m Mock,
+          pytest -m pageFound,
+          pytest -m pageNotFound,
+          pytest -m pageBiggerThan500.
+
+      # Runs a set of commands using the runners shell
+      - name: create report.html
+        run:  pytest --html=report.html
