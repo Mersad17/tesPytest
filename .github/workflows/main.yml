@@ -26,7 +26,7 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          pip install pipenv ,
+          pip install --user pipenv ,
           pipenv run pip install flask,
           pipenv run pip install pytest.
       # Runs a single command using the runners shell
