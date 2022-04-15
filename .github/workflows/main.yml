@@ -39,6 +39,13 @@ jobs:
           pip install flask
           pip install pytest
           pip install requests
+      - name: Install flask,pytest and requests
+        run: |
+          pip install flask
+          pip install pytest
+          pip install requests
+          pip install pytest-mock
+           
 
       - name: Test with pytest
         run: |
