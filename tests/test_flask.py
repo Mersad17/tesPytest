@@ -47,3 +47,11 @@ def test_page_number_bigger(client, page: int):
     response = client.test_client().get("/other?page=" + arg)
     assert response.status_code == 200
     assert  page >= 500
+
+@pytest.mark.pageBiggerThan500Error
+@pytest.mark.parametrize("page", [333, 233])
+def test_page_number_bigger(client, page: int):
+    with pytest.raises(ValueError):
+        if page < 500:
+            raise ValueError("value must be biggerthan 500")
+
