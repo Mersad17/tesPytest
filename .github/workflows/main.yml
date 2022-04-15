@@ -26,23 +26,23 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Run a multi-line script
-        run: |
-          pip install --user pipenv,
-          pipenv run pip install flask,
-          pipenv run pip install pytest.
+      # - name: Run a multi-line script
+      #   run: |
+      #     pip install --user pipenv,
+      #     pipenv run pip install flask,
+      #     pipenv run pip install pytest.
       # Runs a single command using the runners shell
       - name: Run flask
-        run: pipenv run flask run 
+        run: pytest 
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          pytest -m Mock,
-          pytest -m pageFound,
-          pytest -m pageNotFound,
-          pytest -m pageBiggerThan500.
+      # - name: Run a multi-line script
+      #   run: |
+      #     pytest -m Mock,
+      #     pytest -m pageFound,
+      #     pytest -m pageNotFound,
+      #     pytest -m pageBiggerThan500.
 
-      # Runs a set of commands using the runners shell
-      - name: create report.html
-        run:  pytest --html=report.html
+      # # Runs a set of commands using the runners shell
+      # - name: create report.html
+      #   run:  pytest --html=report.html
