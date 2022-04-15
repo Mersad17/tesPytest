@@ -1,0 +1,31 @@
+image: python:3.10
+
+stages:
+  - pip
+  - pytest
+
+
+pip:
+  stage: Install pip and pipenv
+
+  before_script:
+    - python -m pip install --upgrade pip
+    - pip install pipenv
+  script:
+    - pipenv install --dev --skip-lock
+    - pip install flask
+    - pip install requests
+
+pytest:
+  stage: Install pytest
+
+  before_script:
+    - pip install pytest
+    - pip install pytest-mock
+    - pip install pytest-html
+
+  script:
+    - pytest
+
+  only:
+    - scarpy-templates # or the name of your main branch
