@@ -46,9 +46,13 @@ jobs:
           pip install requests
           pip install pytest-mock
           pip install pytest-html
+      - name: Install mock and htmlReport
+        run: |
+          pip install pytest-mock
+          pip install pytest-html
            
 
       - name: Test with pytest
         run: pytest 
-      - name: create report.html
-        run:  pytest --html=report.html --self-contained-html
+      - name: create reportData.html
+        run:  pytest --html=reportData.html --self-contained-html
