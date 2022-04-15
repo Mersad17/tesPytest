@@ -38,7 +38,7 @@ jobs:
           pipenv install
           pip install flask
           pip install pytest
-          pip install request
+          pip install requests
 
       - name: Test with pytest
         run: |
