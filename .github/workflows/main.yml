@@ -45,6 +45,7 @@ jobs:
           pip install pytest
           pip install requests
           pip install pytest-mock
+          pip install pytest-html
            
 
       - name: Test with pytest
